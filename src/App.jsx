@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Button from "./components/Button";
 
 function App() {
   // const [değişken, degiskeni setlemek istediğin fonksiyon] = useState()
@@ -7,16 +8,11 @@ function App() {
   const [name, setName] = useState("Sonuç için Tıkla")
   const title = "BAHİS (Bu Sene Kim Şampiyon Olur )"
 
-  const decrement = () => {
-    if(count <= 0) return //0 veya 0 dan kücükse bos dön
-    setCount(count - 1)
-  }
-
   return (
     <>
       <div>{title}</div>
-      <button onClick={() => setCount(count + 1)} >ARTIR</button>
-      <button onClick={decrement}>AZALT</button>
+      <Button name={"AZALT"} onClick={() => setCount(count - 1)} />
+      <Button name={"ARTTIR"} onClick={() => setCount(count + 1)} />
       <div>{count}</div>
       <div onClick={() => setName("FENERBAHÇE")}>{name}</div>
     </>
