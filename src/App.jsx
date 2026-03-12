@@ -1,24 +1,27 @@
-import { useState } from "react";
-import Button from "./components/Button";
+import { useEffect, useState } from "react";
 
 function App() {
   // const [değişken, degiskeni setlemek istediğin fonksiyon] = useState()
 
-  const [inputName, setInputName] = useState(null)
-  const [data, setData] = useState(null)
-  console.log(inputName, "inputName")
+  const [name, setName] = useState("react")
 
+ /* useEffect(() => {
+    setName("selam")
 
-  const clickFunc = () => {
-    setData(inputName)
-  }
+  }, [])
+*/
+
+    useEffect( () => {
+      setTimeout ( () => {
+      setName("4 sn icinde güncellenicek")
+      } , 4000)
+    })
+
 
 
   return (
     <>
-      <input type="text" onChange={(e) => setInputName(e.target.value)} />
-      <button onClick={clickFunc}>TIKLA</button>
-      {data}
+      {name}
     </>
   )
 }
