@@ -1,27 +1,17 @@
-import { useEffect, useState } from "react";
+import { useRef } from "react"
 
 function App() {
-  // const [değişken, degiskeni setlemek istediğin fonksiyon] = useState()
 
-  const [name, setName] = useState("react")
-
- /* useEffect(() => {
-    setName("selam")
-
-  }, [])
-*/
-
-    useEffect( () => {
-      setTimeout ( () => {
-      setName("4 sn icinde güncellenicek")
-      } , 4000)
-    })
-
-
+  const myinput = useRef()
+  const focusFunc = () => {
+    myinput.current.focus()
+    myinput.current.value = ""
+  }
 
   return (
     <>
-      {name}
+      <input type="text" ref={myinput} />
+      <button onClick={focusFunc}>FOCUSS </button>
     </>
   )
 }
